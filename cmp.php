@@ -8,9 +8,8 @@ $uslink = $linkcode;
 
 $ref = getenv("HTTP_REFERER"); 
 
-$totalon = rand(550,600);
+$totalon = rand(450,600);
 
-$totalon = "$totalon";
 
 if($totalon>="500"){
  
