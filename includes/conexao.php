@@ -8,7 +8,7 @@ date_default_timezone_set('America/Recife');
 define('DBHOST2','localhost');
 define('DBUSER2','USUARIO-DB');
 define('DBPASS2','SENHA-DB');
-define('DBNAME2','NOME-DBr');
+define('DBNAME2','NOME-DB');
 
 try {
 
