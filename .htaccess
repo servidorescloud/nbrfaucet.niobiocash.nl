@@ -13,18 +13,8 @@ RewriteCond %{QUERY_STRING} .*(/\*|union|select|script|insert|delete|exec|drop|i
 RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
 RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
 RewriteRule .* - [R=406,L]
-# Bloquear uso de caracteres ilegais ou inseguro na solicitaÃ§Ã£o HTTP
-# Bloquear uso de caracteres ilegais ou inseguro na VariÃ¡vel Referer da solicitaÃ§Ã£o HTTP
-#Bloquear uso de caracteres ilegais ou inseguro em qualquer cookie associado com a solicitaÃ§Ã£o HTTP
-# Bloquear uso de caracteres ilegais em URI ou uso de URI malformado
-# Bloquear uso de Agentes de conexÃ£o vazias pelo usuÃ¡rio
-# OBS - desativar esta regra se o site Ã© integrado com meios de pagamento, como o PayPal
-# Bloquear uso de caracteres ilegais ou inseguro na variÃ¡vel User Agent
-# Bloquear referÃªncia a localhost/loopback/127.0.0.1 na consulta
-# Bloquear uso de caracteres ilegais ou inseguro na variÃ¡vel de seqÃ¼Ãªncia de consulta
 
-# BEGIN All In One WP Security
-#AIOWPS_BASIC_HTACCESS_RULES_START
+
 <Files .htaccess>
 order allow,deny
 deny from all
@@ -33,8 +23,6 @@ ServerSignature Off
 LimitRequestBody 10240000
 
 Options All -Indexes
-#AIOWPS_DISABLE_INDEX_VIEWS_END
-#AIOWPS_ADVANCED_CHAR_STRING_FILTER_START
 
 <IfModule mod_alias.c>
 RedirectMatch 403 \,
@@ -144,7 +132,6 @@ RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
 RewriteRule .* - [F]
 </IfModule>
 
-# 5G:[USER AGENTS]
 <IfModule mod_setenvif.c>
 # SetEnvIfNoCase User-Agent ^$ keep_out
 SetEnvIfNoCase User-Agent (binlar|casper|cmsworldmap|comodo|diavol|dotbot|feedfinder|flicky|ia_archiver|jakarta|kmccrew|nutch|planetwork|purebot|pycurl|skygrid|sucker|turnit|vikspider|zmeu) keep_out
@@ -155,7 +142,7 @@ Deny from env=keep_out
 </limit>
 </IfModule>
 
-# 5G:[REQUEST STRINGS]
+
 <IfModule mod_alias.c>
 RedirectMatch 403 (https?|ftp|php)\://
 RedirectMatch 403 /(https?|ima|ucp)/
@@ -181,8 +168,3 @@ RedirectMatch 403 /playing.php
 RedirectMatch 403 muieblackcat
 </IfModule>
 
-# php -- BEGIN cPanel-generated handler, do not edit
-# NOTE this account's php is controlled via FPM and the vhost, this is a place holder.
-# Do not edit. This next line is to support the cPanel php wrapper (php_cli).
-# AddType application/x-httpd-ea-php70 .php .phtml
-# php -- END cPanel-generated handler, do not edit
