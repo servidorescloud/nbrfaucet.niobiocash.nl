@@ -1,40 +1,22 @@
 <?php
 header('Content-type: text/javascript');
-?><?php
-
-
+?>
+<?php
 $linkcode = $_GET['codeg'];
 
 $uslink = $linkcode;
 
 $ref = getenv("HTTP_REFERER"); 
 
-//echo "// $ref ---- ";
-if($ref==""){
-//exit;
-}
-
-
-
 $totalon = rand(550,600);
 
 $totalon = "$totalon";
 
-
-
-
-
 if($totalon>="500"){
  
  $linkganhar = "<a href='sol.php?pgtp=win&gpw=$uslink'> <H2> [SOLICITAR - NBR] </H2></a>";   
- 
- 
-    
+     
 }  
-
-
-
-
 
 ?>
 !function($){
